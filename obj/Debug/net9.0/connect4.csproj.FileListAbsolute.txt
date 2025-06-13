@@ -1,0 +1,14 @@
+C:\Users\speyn\projects\connect4\bin\Debug\net9.0\connect4.exe
+C:\Users\speyn\projects\connect4\bin\Debug\net9.0\connect4.deps.json
+C:\Users\speyn\projects\connect4\bin\Debug\net9.0\connect4.runtimeconfig.json
+C:\Users\speyn\projects\connect4\bin\Debug\net9.0\connect4.dll
+C:\Users\speyn\projects\connect4\bin\Debug\net9.0\connect4.pdb
+C:\Users\speyn\projects\connect4\obj\Debug\net9.0\connect4.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\speyn\projects\connect4\obj\Debug\net9.0\connect4.AssemblyInfoInputs.cache
+C:\Users\speyn\projects\connect4\obj\Debug\net9.0\connect4.AssemblyInfo.cs
+C:\Users\speyn\projects\connect4\obj\Debug\net9.0\connect4.csproj.CoreCompileInputs.cache
+C:\Users\speyn\projects\connect4\obj\Debug\net9.0\connect4.dll
+C:\Users\speyn\projects\connect4\obj\Debug\net9.0\refint\connect4.dll
+C:\Users\speyn\projects\connect4\obj\Debug\net9.0\connect4.pdb
+C:\Users\speyn\projects\connect4\obj\Debug\net9.0\connect4.genruntimeconfig.cache
+C:\Users\speyn\projects\connect4\obj\Debug\net9.0\ref\connect4.dll
