@@ -12,3 +12,4 @@ C:\Users\speyn\projects\connect4\obj\Debug\net9.0\refint\connect4.dll
 C:\Users\speyn\projects\connect4\obj\Debug\net9.0\connect4.pdb
 C:\Users\speyn\projects\connect4\obj\Debug\net9.0\connect4.genruntimeconfig.cache
 C:\Users\speyn\projects\connect4\obj\Debug\net9.0\ref\connect4.dll
+C:\Users\speyn\projects\connect4\obj\Debug\net9.0\connect4.sourcelink.json
