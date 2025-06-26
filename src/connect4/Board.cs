@@ -45,15 +45,14 @@ namespace connect4
             // Check all possible directions for 4 in a row
             return CheckHorizontal(lastRow, lastCol, player) ||
                    CheckVertical(lastRow, lastCol, player) ||
-                   CheckDiagonalUp(lastRow, lastCol, player) ||
-                   CheckDiagonalDown(lastRow, lastCol, player);
+                   CheckDiagonal(lastRow, lastCol, -1, 1, player) || // up-right
+                   CheckDiagonal(lastRow, lastCol, 1, 1, player);   // down-right
         }
 
         // Helper method: Check for 4 in a row horizontally
         private bool CheckHorizontal(int row, int col, char player)
         {
             int count = 0;
-            // Check to the left and right of the current position
             for (int c = 0; c < Cols; c++)
             {
                 if (grid[row, c] == player)
@@ -61,10 +60,7 @@ namespace connect4
                     count++;
                     if (count == 4) return true;
                 }
-                else
-                {
-                    count = 0;
-                }
+                else count = 0;
             }
             return false;
         }
@@ -73,7 +69,6 @@ namespace connect4
         private bool CheckVertical(int row, int col, char player)
         {
             int count = 0;
-            // Check above and below the current position
             for (int r = 0; r < Rows; r++)
             {
                 if (grid[r, col] == player)
@@ -81,63 +76,34 @@ namespace connect4
                     count++;
                     if (count == 4) return true;
                 }
-                else
-                {
-                    count = 0;
-                }
+                else count = 0;
             }
             return false;
         }
 
-        // // Helper method: Check for 4 in a row diagonally (up-right)
-        // private bool CheckDiagonalUp(int row, int col, char player)
-        // {
-        //     int count = 0;
-        //     // Find the starting position (bottom-left of the diagonal)
-        //     int startRow = row + col;
-        //     if (startRow >= Rows) startRow = Rows - 1;
-        //     int startCol = 0;
-        //     if (startRow - row + col < Cols) startCol = startRow - row + col;
-        //     // Now check along the diagonal
-        //     for (int r = startRow, c = startCol; r >= 0 && c < Cols; r--, c++)
-        //     {
-        //         if (grid[r, c] == player)
-        //         {
-        //             count++;
-        //             if (count == 4) return true;
-        //         }
-        //         else
-        //         {
-        //             count = 0;
-        //         }
-        //     }
-        //     return false;
-        // }
-
-        // // Helper method: Check for 4 in a row diagonally (down-right)
-        // private bool CheckDiagonalDown(int row, int col, char player)
-        // {
-        //     int count = 0;
-        //     // Find the starting position (top-left of the diagonal)
-        //     int startRow = row - col;
-        //     if (startRow < 0) startRow = 0;
-        //     int startCol = col - row;
-        //     if (startCol < 0) startCol = 0;
-        //     // Now check along the diagonal
-        //     for (int r = startRow, c = startCol; r < Rows && c < Cols; r++, c++)
-        //     {
-        //         if (grid[r, c] == player)
-        //         {
-        //             count++;
-        //             if (count == 4) return true;
-        //         }
-        //         else
-        //         {
-        //             count = 0;
-        //         }
-        //     }
-        //     return false;
-        // }
+        // Helper method: Check for 4 in a row diagonally
+        // deltaRow and deltaCol are the direction steps (e.g., -1,1 for up-right)
+        private bool CheckDiagonal(int row, int col, int deltaRow, int deltaCol, char player)
+        {
+            int count = 0;
+            // Check up to 4 positions in each direction from the current disc
+            for (int step = -3; step <= 3; step++)
+            {
+                int r = row + step * deltaRow;
+                int c = col + step * deltaCol;
+                // Make sure we stay inside the grid
+                if (r >= 0 && r < Rows && c >= 0 && c < Cols)
+                {
+                    if (grid[r, c] == player)
+                    {
+                        count++;
+                        if (count == 4) return true;
+                    }
+                    else count = 0;
+                }
+            }
+            return false;
+        }
 
         // Display the board with column numbers and color
         public void Display()
