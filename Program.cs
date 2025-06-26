@@ -14,21 +14,25 @@ namespace connect4
             while (true)
             {
                 board.Display();
+
                 Console.Write($"Player {currentPlayer.Name}, enter column (1-7): ");
                 string? input = Console.ReadLine();
 
-                // 1. Check for null input
-                if (input == null)
+                if (input == null || input.Trim() == "")
                 {
                     Console.WriteLine("No input detected. Please try again.");
                     continue;
                 }
 
-                // 2. Try to parse and validate the input
                 int col;
-                if (int.TryParse(input, out col) && col >= 1 && col <= 7)
+                bool isNumber = int.TryParse(input, out col);
+                
+                if (isNumber && col >= 1 && col <= 7)
                 {
-                    col--; // Convert to 0-based index
+                    // Convert to 0-based index
+                    col--;
+
+                    // Disc placement
                     if (board.PlaceDisc(col, currentPlayer.Symbol))
                     {
                         if (board.CheckWin(col, currentPlayer.Symbol))
@@ -37,6 +41,7 @@ namespace connect4
                             Console.WriteLine($"Player {currentPlayer.Name} wins!");
                             break;
                         }
+                        // Players switch
                         currentPlayer = (currentPlayer == playerRed) ? playerYellow : playerRed;
                     }
                     else
