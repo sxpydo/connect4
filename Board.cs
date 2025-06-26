@@ -89,55 +89,55 @@ namespace connect4
             return false;
         }
 
-        // Helper method: Check for 4 in a row diagonally (up-right)
-        private bool CheckDiagonalUp(int row, int col, char player)
-        {
-            int count = 0;
-            // Find the starting position (bottom-left of the diagonal)
-            int startRow = row + col;
-            if (startRow >= Rows) startRow = Rows - 1;
-            int startCol = 0;
-            if (startRow - row + col < Cols) startCol = startRow - row + col;
-            // Now check along the diagonal
-            for (int r = startRow, c = startCol; r >= 0 && c < Cols; r--, c++)
-            {
-                if (grid[r, c] == player)
-                {
-                    count++;
-                    if (count == 4) return true;
-                }
-                else
-                {
-                    count = 0;
-                }
-            }
-            return false;
-        }
+        // // Helper method: Check for 4 in a row diagonally (up-right)
+        // private bool CheckDiagonalUp(int row, int col, char player)
+        // {
+        //     int count = 0;
+        //     // Find the starting position (bottom-left of the diagonal)
+        //     int startRow = row + col;
+        //     if (startRow >= Rows) startRow = Rows - 1;
+        //     int startCol = 0;
+        //     if (startRow - row + col < Cols) startCol = startRow - row + col;
+        //     // Now check along the diagonal
+        //     for (int r = startRow, c = startCol; r >= 0 && c < Cols; r--, c++)
+        //     {
+        //         if (grid[r, c] == player)
+        //         {
+        //             count++;
+        //             if (count == 4) return true;
+        //         }
+        //         else
+        //         {
+        //             count = 0;
+        //         }
+        //     }
+        //     return false;
+        // }
 
-        // Helper method: Check for 4 in a row diagonally (down-right)
-        private bool CheckDiagonalDown(int row, int col, char player)
-        {
-            int count = 0;
-            // Find the starting position (top-left of the diagonal)
-            int startRow = row - col;
-            if (startRow < 0) startRow = 0;
-            int startCol = col - row;
-            if (startCol < 0) startCol = 0;
-            // Now check along the diagonal
-            for (int r = startRow, c = startCol; r < Rows && c < Cols; r++, c++)
-            {
-                if (grid[r, c] == player)
-                {
-                    count++;
-                    if (count == 4) return true;
-                }
-                else
-                {
-                    count = 0;
-                }
-            }
-            return false;
-        }
+        // // Helper method: Check for 4 in a row diagonally (down-right)
+        // private bool CheckDiagonalDown(int row, int col, char player)
+        // {
+        //     int count = 0;
+        //     // Find the starting position (top-left of the diagonal)
+        //     int startRow = row - col;
+        //     if (startRow < 0) startRow = 0;
+        //     int startCol = col - row;
+        //     if (startCol < 0) startCol = 0;
+        //     // Now check along the diagonal
+        //     for (int r = startRow, c = startCol; r < Rows && c < Cols; r++, c++)
+        //     {
+        //         if (grid[r, c] == player)
+        //         {
+        //             count++;
+        //             if (count == 4) return true;
+        //         }
+        //         else
+        //         {
+        //             count = 0;
+        //         }
+        //     }
+        //     return false;
+        // }
 
         // Display the board with column numbers and color
         public void Display()
