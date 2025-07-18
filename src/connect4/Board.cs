@@ -40,7 +40,7 @@ namespace connect4
                     lastRow = row;
                     break;
                 }
-            if (lastRow == -1) return false; // Should not happen if PlaceDisc was called
+            if (lastRow == -1) return false;
 
             // Check all possible directions for 4 in a row
             return CheckHorizontal(lastRow, lastCol, player) ||
